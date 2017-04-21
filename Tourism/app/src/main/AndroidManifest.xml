@@ -17,19 +17,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Activity1_SplashScreen">
+        <activity android:name=".Activities.Activity1SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Activity2_Login" />
-        <activity android:name=".Activities.Activity3_GridView" />
-        <activity android:name=".Activities.Activity4_CityDiscription" />
-        <activity android:name=".Activities.Activity5_a_FamousPlaces" />
-        <activity android:name=".Activities.Activity5_b_Gallery" />
-        <activity android:name=".Activities.Activity3_b_AddPlace"></activity>
+        <activity android:name=".Activities.Activity2Login" />
+        <activity android:name=".Activities.Activity3GridView" />
+        <activity android:name=".Activities.Activity4CityDiscription" />
+        <activity android:name=".Activities.Activity5aFamousPlaces" />
+        <activity android:name=".Activities.Activity5bGallery" />
+        <activity android:name=".Activities.Activity3bAddPlace"></activity>
     </application>
 
 </manifest>

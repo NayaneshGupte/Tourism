@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.jitendra.tourism.Activities.Activity4_CityDiscription">
+    tools:context="com.example.jitendra.tourism.Activities.Activity4CityDiscription">
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

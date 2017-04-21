@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.jitendra.tourism.Activities.Activity2_Login">
+    tools:context="com.example.jitendra.tourism.Activities.Activity2Login">
 
     <EditText
         android:id="@+id/et_Username"

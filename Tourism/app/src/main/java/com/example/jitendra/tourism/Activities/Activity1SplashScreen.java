@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.example.jitendra.tourism.R;
 
-public class Activity1_SplashScreen extends AppCompatActivity {
+public class Activity1SplashScreen extends AppCompatActivity {
 
     private ImageView mLogo;
 
@@ -28,7 +28,7 @@ public class Activity1_SplashScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               Intent intent=new Intent(Activity1_SplashScreen.this,Activity2_Login.class);
+               Intent intent=new Intent(Activity1SplashScreen.this,Activity2Login.class);
                 startActivity(intent);
             }
         });

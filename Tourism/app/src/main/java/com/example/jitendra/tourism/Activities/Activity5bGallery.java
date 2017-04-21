@@ -11,7 +11,7 @@ import com.example.jitendra.tourism.model.GalleryModel;
 
 import java.util.ArrayList;
 
-public class Activity5_b_Gallery extends AppCompatActivity {
+public class Activity5bGallery extends AppCompatActivity {
 
     private ViewPager view_Pager;
     private SwipeAdapter swipe_Adapter;

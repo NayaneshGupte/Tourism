@@ -1,23 +1,20 @@
 package com.example.jitendra.tourism.Activities;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jitendra.tourism.R;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class Activity3_b_AddPlace extends AppCompatActivity {
+public class Activity3bAddPlace extends AppCompatActivity {
 
     private ImageView Add_CityImage;
     private TextView Add_CityName;
@@ -41,7 +38,7 @@ public class Activity3_b_AddPlace extends AppCompatActivity {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity3_GridView Act=new Activity3_GridView();
+                Activity3GridView Act=new Activity3GridView();
                 Bitmap bitmap = BitmapFactory.decodeFile(file_Path.get(0));
                 Add_CityImage.setImageBitmap(bitmap);
                 Act.Name_of_LocalPlace=CityName;

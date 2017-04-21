@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.example.jitendra.tourism.Activities.Activity1_SplashScreen">
+    tools:context="com.example.jitendra.tourism.Activities.Activity1SplashScreen">
 
     <ImageView
         android:id="@+id/iv_Logo"

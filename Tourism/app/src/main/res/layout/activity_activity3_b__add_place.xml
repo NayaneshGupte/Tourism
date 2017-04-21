@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jitendra.tourism.Activities.Activity3_b_AddPlace"
+    tools:context="com.example.jitendra.tourism.Activities.Activity3bAddPlace"
     android:orientation="vertical"
     android:weightSum="1">
 

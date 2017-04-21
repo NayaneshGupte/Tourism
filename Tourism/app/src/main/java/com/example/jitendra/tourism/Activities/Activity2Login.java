@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.jitendra.tourism.R;
 
-public class Activity2_Login extends AppCompatActivity {
+public class Activity2Login extends AppCompatActivity {
 
     private EditText Et_Username;
     private EditText Et_Password;
@@ -40,16 +40,16 @@ public class Activity2_Login extends AppCompatActivity {
                 //if correct then grant permission
                 if (Uname.equals(Et_Username.getText().toString()) && Pass.equals(Et_Password.getText().toString())) {
 
-                    Toast.makeText(Activity2_Login.this, "Login Successful....", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity2Login.this, "Login Successful....", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(Activity2_Login.this, Activity3_GridView.class);
+                    Intent intent = new Intent(Activity2Login.this, Activity3GridView.class);
                     startActivity(intent);
                 }
 
                 //if not then assign fields with NULL and show error Toast
                 else {
 
-                    Toast.makeText(Activity2_Login.this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity2Login.this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show();
                     Et_Username.setText(null);
                     Et_Password.setText(null);
                 }

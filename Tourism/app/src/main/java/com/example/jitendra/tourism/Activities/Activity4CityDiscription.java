@@ -14,7 +14,7 @@ import com.example.jitendra.tourism.R;
 
 import java.util.ArrayList;
 
-public class Activity4_CityDiscription extends AppCompatActivity {
+public class Activity4CityDiscription extends AppCompatActivity {
 
     private ImageView Iv_CityPic;
     private TextView Tv_City_Discription;
@@ -51,7 +51,7 @@ public class Activity4_CityDiscription extends AppCompatActivity {
         B_Gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity4_CityDiscription.this,Activity5_b_Gallery.class);
+                Intent intent = new Intent(Activity4CityDiscription.this,Activity5bGallery.class);
                 intent.putExtra("position", Position);
                 startActivity(intent);
 
@@ -61,7 +61,7 @@ public class Activity4_CityDiscription extends AppCompatActivity {
         B_FamousPlaces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Activity4_CityDiscription.this, Activity5_a_FamousPlaces.class);
+                Intent intent = new Intent(Activity4CityDiscription.this, Activity5aFamousPlaces.class);
                 intent.putExtra("position", Position);
                 startActivity(intent);
             }

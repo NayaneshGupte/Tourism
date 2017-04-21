@@ -1,6 +1,5 @@
 package com.example.jitendra.tourism.adapter;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -9,13 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jitendra.tourism.Activities.Activity3_GridView;
 import com.example.jitendra.tourism.R;
-import com.example.jitendra.tourism.model.GridView_Model;
+import com.example.jitendra.tourism.model.GridViewModel;
 
 import java.util.ArrayList;
 
@@ -25,21 +22,21 @@ import static android.content.ContentValues.TAG;
  * Created by jitendra on 19/04/2017.
  */
 
-public class GridView_Adapter extends BaseAdapter {
+public class GridViewAdapter extends BaseAdapter {
 
-    private ArrayList<GridView_Model> AL_GridView=new ArrayList<GridView_Model>();
+    private ArrayList<GridViewModel> AL_GridView=new ArrayList<GridViewModel>();
     private ArrayList<String> file_Path=new ArrayList<String>();
     private ArrayList<String> file_PathFor_LocalPlace=new ArrayList<String>();
     private String Name;
     //constructor to initialize GridView ArrayLIst
-    public GridView_Adapter(ArrayList<GridView_Model> AL_GridView,ArrayList<String> file_Path,String Name,ArrayList<String> file_PathFor_LocalPlace) {
+    public GridViewAdapter(ArrayList<GridViewModel> AL_GridView, ArrayList<String> file_Path, String Name, ArrayList<String> file_PathFor_LocalPlace) {
         this.AL_GridView = AL_GridView;
         this.file_Path=file_Path;
         this.Name=Name;
         this.file_PathFor_LocalPlace=file_PathFor_LocalPlace;
     }
 
-    public GridView_Adapter() {
+    public GridViewAdapter() {
     }
 
     public void Receive_Data(Bundle bundle){
@@ -93,7 +90,7 @@ public class GridView_Adapter extends BaseAdapter {
 
         }
         else {
-            GridView_Model gridView_model = AL_GridView.get(position);
+            GridViewModel gridView_model = AL_GridView.get(position);
             Bitmap bitmap = BitmapFactory.decodeFile(file_Path.get(position));
             holder.CityImage.setImageBitmap(bitmap);
             holder.CityName.setText(gridView_model.getCity_Name());

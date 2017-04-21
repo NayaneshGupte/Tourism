@@ -12,20 +12,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.example.jitendra.tourism.R;
-import com.example.jitendra.tourism.adapter.Places_Adapter;
+import com.example.jitendra.tourism.adapter.PlacesAdapter;
 import com.example.jitendra.tourism.model.Places;
 import com.example.jitendra.tourism.utils.RecyclerViewItemClickListener;
 
 import java.util.ArrayList;
 
-public class Activity5_a_FamousPlaces extends AppCompatActivity implements RecyclerViewItemClickListener {
+public class Activity5aFamousPlaces extends AppCompatActivity implements RecyclerViewItemClickListener {
 
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
 
     RecyclerView recycler_View;
     RecyclerView.LayoutManager layout_Manager;
-    Places_Adapter places_Adapter;
+    PlacesAdapter places_Adapter;
 
     //array to store all images
     int Image_id[] = {R.drawable.vpdelhiakshardham, R.drawable.vpdelhilotus, R.drawable.vpdelhijamma, R.drawable.add, R.drawable.vpmumbaimarine, R.drawable.vpmumbailast, R.drawable.vpmumbaichowpatti, R.drawable.add, R.drawable.vpchennaiqueen, R.drawable.vpchennaimgm, R.drawable.vpchennaimarina, R.drawable.add, R.drawable.vpkolkatadurga, R.drawable.vpkolkatabook, R.drawable.vpkolkatabbd, R.drawable.add, R.drawable.vplucknowjaneshwer, R.drawable.vplucknowambedkar, R.drawable.vplucknowzoo, R.drawable.add, R.drawable.vphyderabadopera, R.drawable.vphyderabadananthgiri, R.drawable.vphyderabadapstate, R.drawable.add, R.drawable.vpahemadabadthor, R.drawable.vpahemedabadvastrapur, R.drawable.vpahemdabadkankaria, R.drawable.add, R.drawable.vpbangpalace, R.drawable.vpbanglal, R.drawable.vpbangtipu, R.drawable.add};
@@ -42,7 +42,7 @@ public class Activity5_a_FamousPlaces extends AppCompatActivity implements Recyc
         setContentView(R.layout.activity_famous_places__card_view);
 
         recycler_View = (RecyclerView) findViewById(R.id.rv_famous_places_card);
-       // places_Adapter = new Places_Adapter(this);
+       // places_Adapter = new PlacesAdapter(this);
         layout_Manager = new LinearLayoutManager(this);
         recycler_View.setLayoutManager(layout_Manager);
         recycler_View.setHasFixedSize(true);
@@ -62,7 +62,7 @@ public class Activity5_a_FamousPlaces extends AppCompatActivity implements Recyc
         }
 
 
-        places_Adapter = new Places_Adapter(Places_List);
+        places_Adapter = new PlacesAdapter(Places_List);
         places_Adapter.setOnRecycleView_ItemClickListener(this);
         recycler_View.setAdapter(places_Adapter);
 

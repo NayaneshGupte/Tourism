@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jitendra.tourism.Activities.Activity5_a_FamousPlaces;
+import com.example.jitendra.tourism.Activities.Activity5aFamousPlaces;
 import com.example.jitendra.tourism.model.Places;
 import com.example.jitendra.tourism.R;
 import com.example.jitendra.tourism.utils.RecyclerViewItemClickListener;
@@ -20,11 +20,11 @@ import java.util.ArrayList;
 
 //adapter class to handle cardview
 
-public class Places_Adapter extends RecyclerView.Adapter<Places_Adapter.Places_ViewHolder>  {
+public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_ViewHolder>  {
 
 
     //creating object of famous places card view class
-    Activity5_a_FamousPlaces famousPlaces_cardView =new Activity5_a_FamousPlaces();
+    Activity5aFamousPlaces famousPlaces_cardView =new Activity5aFamousPlaces();
 
    ArrayList<Places> place=new ArrayList<Places>();
     private String CardViewNo_4_Text ="Tap Here";   //String to compare text of no4 image in cardview
@@ -36,7 +36,7 @@ public class Places_Adapter extends RecyclerView.Adapter<Places_Adapter.Places_V
         this.onRecycleView_ItemClickListener = onRecycleView_ItemClickListener;
     }
 
-    public Places_Adapter(ArrayList<Places> place) {
+    public PlacesAdapter(ArrayList<Places> place) {
         this.place = place;
     }
 
