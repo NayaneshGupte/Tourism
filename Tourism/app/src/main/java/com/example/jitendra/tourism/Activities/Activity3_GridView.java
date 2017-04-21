@@ -4,136 +4,94 @@
 package com.example.jitendra.tourism.Activities;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.example.jitendra.tourism.R;
-
+import com.example.jitendra.tourism.adapter.GridView_Adapter;
+import com.example.jitendra.tourism.model.GridView_Model;
+import java.io.File;
 import java.util.ArrayList;
 
 public class Activity3_GridView extends AppCompatActivity {
 
     private GridView Gridview;
-
-    //Array list to store City name and images
-    private ArrayList<String> City_List = new ArrayList<>();
-    private ArrayList<Drawable> City_ImageList = new ArrayList<>();
+    private ArrayList<String> file_Path = new ArrayList<String>();// list of file paths
+    ArrayList<String> file_PathFor_LocalPlace = new ArrayList<String>();
+    private ArrayList<GridView_Model> AL_GridView_model =new ArrayList<GridView_Model>();//here AL is defining ArrayList
+    String Name;
+    private File[] listFile;
+    //Array to store City name
+    private String[] City_Name;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cities);
+        getFromSdcard();
 
-        Gridview = (GridView) findViewById(R.id.gv_GrinView1);
+        Gridview = (GridView) findViewById(R.id.gv_GridView1);
 
-        //adding city names to arraylist
-        City_List.add("Delhi");
-        City_List.add("Mumbai");
-        City_List.add("Chennai");
-        City_List.add("Kolkata");
-        City_List.add("Lucknow");
-        City_List.add("Hyderabad");
-        City_List.add("Ahemedabad");
-        City_List.add("Bangluru");
-        City_List.add("Add local Place");
+        //initializing City name array with String array in source xml
+        City_Name = getResources().getStringArray(R.array.CityNames);
 
-        //adding city images to arraylist
-        City_ImageList.add(getDrawable(R.drawable.delhi));
-        City_ImageList.add(getDrawable(R.drawable.mumbai));
-        City_ImageList.add(getDrawable(R.drawable.chennai));
-        City_ImageList.add(getDrawable(R.drawable.kolkatta));
-        City_ImageList.add(getDrawable(R.drawable.lucknow));
-        City_ImageList.add(getDrawable(R.drawable.hyderabad));
-        City_ImageList.add(getDrawable(R.drawable.ahmdbd));
-        City_ImageList.add(getDrawable(R.drawable.bang));
-        City_ImageList.add(getDrawable(R.drawable.add));
 
+        for(int i=0;i<City_Name.length;i++){
+
+            GridView_Model gridView_model =new GridView_Model(City_Name[i]);
+            AL_GridView_model.add(gridView_model);
+        }
         //calling adapter class on gridview
-        Gridview.setAdapter(new Adapter());
+        Gridview.setAdapter(new GridView_Adapter(AL_GridView_model,file_Path,Name,file_PathFor_LocalPlace));
+
 
         Gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                            @Override
-                                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position!=8){
 
-                                                if(position==8){
-                                                    Intent intent = new Intent(Activity3_GridView.this, Activity3_GridView.class);
-                                                    startActivity(intent);
+                    Intent intent = new Intent(Activity3_GridView.this, Activity4_CityDiscription.class);
+                    intent.putExtra("CityNumber", position);
+                    startActivity(intent);
+                }
 
-                                                }
-                                                else {
+                else{
 
-                                                    Intent intent = new Intent(Activity3_GridView.this, Activity4_CityDiscription.class);
-                                                    intent.putExtra("CityNumber", position);
-                                                    startActivity(intent);
-                                                }
-                                            }
-                                        }
-        );
-    }
+                    Intent intent = new Intent(Activity3_GridView.this, Activity3_b_AddPlace.class);
+                    startActivity(intent);
+                    bundle=new Bundle();
+                    bundle.putString("Name",Name);
+                    bundle.putStringArrayList("Path",file_PathFor_LocalPlace);
 
-    //Adapter class defination
-    class Adapter extends BaseAdapter {
+                    GridView_Adapter adapter=new GridView_Adapter(AL_GridView_model,file_Path,Name,file_PathFor_LocalPlace);
+                    adapter.Receive_Data(bundle);
+                    Gridview.setAdapter(adapter);
 
-
-        @Override
-        public int getCount() {
-            return City_ImageList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-
-            ViewHolder holder;
-
-            if (convertView == null) {
-
-                convertView = getLayoutInflater().inflate(R.layout.list_cities, parent, false);
-
-                holder = new ViewHolder();
-                holder.bind(convertView);
-                convertView.setTag(holder);
-            } else {
-
-
-                holder = (ViewHolder) convertView.getTag();
+                }
             }
+        });
+    }
 
-            holder.CityName.setText(City_List.get(position));
-            holder.City.setImageDrawable(City_ImageList.get(position));
+    public void getFromSdcard()
+    {
+        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Pic");
+
+        if (file.isDirectory())
+        {
+            listFile = file.listFiles();
 
 
-            return convertView;
+            for (int i = 0; i < listFile.length; i++)
+            {
+
+                file_Path.add(listFile[i].getAbsolutePath());
+
+            }
         }
     }
 
-    class ViewHolder {
 
-        ImageView City;
-        TextView CityName;
-
-        void bind(View view) {
-
-            City = (ImageView) view.findViewById(R.id.iv_City);
-            CityName = (TextView) view.findViewById(R.id.tv_CityName);
-        }
-    }
 }

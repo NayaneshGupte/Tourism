@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jitendra.tourism">
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-feature android:name="android.hardware.camera" android:required="true"></uses-feature>
-     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,7 +28,8 @@
         <activity android:name=".Activities.Activity3_GridView" />
         <activity android:name=".Activities.Activity4_CityDiscription" />
         <activity android:name=".Activities.Activity5_a_FamousPlaces" />
-        <activity android:name=".Activities.Activity5_b_Gallery"></activity>
+        <activity android:name=".Activities.Activity5_b_Gallery" />
+        <activity android:name=".Activities.Activity3_b_AddPlace"></activity>
     </application>
 
 </manifest>

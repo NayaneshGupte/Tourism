@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:numColumns="2"
-    android:id="@+id/gv_GrinView1"
+    android:id="@+id/gv_GridView1"
     android:background="@color/colorPrimary"
     android:columnWidth="100dp"
     tools:context="com.example.jitendra.tourism.Activities.Activity3_GridView">

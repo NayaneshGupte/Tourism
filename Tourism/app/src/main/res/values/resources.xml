@@ -94,5 +94,18 @@
 
     </string-array>
 
+    <string-array name="CityNames">
+
+        <item>"Delhi"</item>
+        <item>"Mumbai"</item>
+        <item>"Chennai"</item>
+        <item>"Kolkata"</item>
+        <item>"Lucknow"</item>
+        <item>"Hyderabad"</item>
+        <item>"Ahemedabad"</item>
+        <item>"Bangluru"</item>
+        <item>"Add local Place"</item>
+    </string-array>
+
 
 </resources>
