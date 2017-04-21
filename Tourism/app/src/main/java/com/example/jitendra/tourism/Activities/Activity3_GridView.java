@@ -21,7 +21,7 @@ public class Activity3_GridView extends AppCompatActivity {
     private ArrayList<String> file_Path = new ArrayList<String>();// list of file paths
     ArrayList<String> file_PathFor_LocalPlace = new ArrayList<String>();
     private ArrayList<GridView_Model> AL_GridView_model =new ArrayList<GridView_Model>();//here AL is defining ArrayList
-    String Name;
+    String Name_of_LocalPlace;
     private File[] listFile;
     //Array to store City name
     private String[] City_Name;
@@ -45,7 +45,7 @@ public class Activity3_GridView extends AppCompatActivity {
             AL_GridView_model.add(gridView_model);
         }
         //calling adapter class on gridview
-        Gridview.setAdapter(new GridView_Adapter(AL_GridView_model,file_Path,Name,file_PathFor_LocalPlace));
+        Gridview.setAdapter(new GridView_Adapter(AL_GridView_model,file_Path,Name_of_LocalPlace,file_PathFor_LocalPlace));
 
 
         Gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -54,7 +54,11 @@ public class Activity3_GridView extends AppCompatActivity {
                 if(position!=8){
 
                     Intent intent = new Intent(Activity3_GridView.this, Activity4_CityDiscription.class);
-                    intent.putExtra("CityNumber", position);
+                    /*intent.putExtra("CityNumber", position);
+                    intent.putExtra("Path",file_Path[position]);*/
+                    Bundle bundle=new Bundle();
+                    bundle.putInt("Position",position);
+                    bundle.putStringArrayList("Path",file_Path);
                     startActivity(intent);
                 }
 
@@ -63,10 +67,10 @@ public class Activity3_GridView extends AppCompatActivity {
                     Intent intent = new Intent(Activity3_GridView.this, Activity3_b_AddPlace.class);
                     startActivity(intent);
                     bundle=new Bundle();
-                    bundle.putString("Name",Name);
+                    bundle.putString("Name",Name_of_LocalPlace);
                     bundle.putStringArrayList("Path",file_PathFor_LocalPlace);
 
-                    GridView_Adapter adapter=new GridView_Adapter(AL_GridView_model,file_Path,Name,file_PathFor_LocalPlace);
+                    GridView_Adapter adapter=new GridView_Adapter(AL_GridView_model,file_Path,Name_of_LocalPlace,file_PathFor_LocalPlace);
                     adapter.Receive_Data(bundle);
                     Gridview.setAdapter(adapter);
 

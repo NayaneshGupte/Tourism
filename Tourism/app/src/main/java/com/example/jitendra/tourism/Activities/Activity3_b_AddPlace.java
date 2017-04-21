@@ -44,7 +44,7 @@ public class Activity3_b_AddPlace extends AppCompatActivity {
                 Activity3_GridView Act=new Activity3_GridView();
                 Bitmap bitmap = BitmapFactory.decodeFile(file_Path.get(0));
                 Add_CityImage.setImageBitmap(bitmap);
-                Act.Name=CityName;
+                Act.Name_of_LocalPlace=CityName;
                 Act.file_PathFor_LocalPlace=file_Path;
 
             }
