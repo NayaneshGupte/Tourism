@@ -24,16 +24,16 @@ import static android.content.ContentValues.TAG;
 
 public class GridViewAdapter extends BaseAdapter {
 
-    private ArrayList<GridViewModel> AL_GridView=new ArrayList<GridViewModel>();
-    private ArrayList<String> file_Path=new ArrayList<String>();
-    private ArrayList<String> file_PathFor_LocalPlace=new ArrayList<String>();
-    private String Name;
+    private ArrayList<GridViewModel> alGridview =new ArrayList<GridViewModel>();
+    private ArrayList<String> filePath =new ArrayList<String>();
+    private ArrayList<String> filePathForLocalPlace =new ArrayList<String>();
+    private String name;
     //constructor to initialize GridView ArrayLIst
-    public GridViewAdapter(ArrayList<GridViewModel> AL_GridView, ArrayList<String> file_Path, String Name, ArrayList<String> file_PathFor_LocalPlace) {
-        this.AL_GridView = AL_GridView;
-        this.file_Path=file_Path;
-        this.Name=Name;
-        this.file_PathFor_LocalPlace=file_PathFor_LocalPlace;
+    public GridViewAdapter(ArrayList<GridViewModel> alGridview, ArrayList<String> filePath, String Name, ArrayList<String> filePathForLocalPlace) {
+        this.alGridview = alGridview;
+        this.filePath = filePath;
+        this.name=Name;
+        this.filePathForLocalPlace = filePathForLocalPlace;
     }
 
     public GridViewAdapter() {
@@ -41,14 +41,14 @@ public class GridViewAdapter extends BaseAdapter {
 
     public void Receive_Data(Bundle bundle){
 
-        Name=bundle.getString("Name","");
-        file_PathFor_LocalPlace=bundle.getStringArrayList("Path");
+        name=bundle.getString("Name","");
+        filePathForLocalPlace =bundle.getStringArrayList("Path");
 
     }
 
     @Override
     public int getCount() {
-        return AL_GridView.size();
+        return alGridview.size();
     }
 
     @Override
@@ -80,20 +80,20 @@ public class GridViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        if(Name!=null && file_PathFor_LocalPlace!=null && position==8){
+        if(name!=null && filePathForLocalPlace !=null && position==8){
 
-            holder.CityName.setText(Name);
-            Log.e(TAG,String.valueOf(file_PathFor_LocalPlace.size()));
-            Bitmap bitmap = BitmapFactory.decodeFile(file_PathFor_LocalPlace.get(0));
-            holder.CityImage.setImageBitmap(bitmap);
-            holder.CityImage.setImageBitmap(bitmap);
+            holder.cityName.setText(name);
+            Log.e(TAG,String.valueOf(filePathForLocalPlace.size()));
+            Bitmap bitmap = BitmapFactory.decodeFile(filePathForLocalPlace.get(0));
+            holder.cityImage.setImageBitmap(bitmap);
+            holder.cityImage.setImageBitmap(bitmap);
 
         }
         else {
-            GridViewModel gridView_model = AL_GridView.get(position);
-            Bitmap bitmap = BitmapFactory.decodeFile(file_Path.get(position));
-            holder.CityImage.setImageBitmap(bitmap);
-            holder.CityName.setText(gridView_model.getCity_Name());
+            GridViewModel gridView_model = alGridview.get(position);
+            Bitmap bitmap = BitmapFactory.decodeFile(filePath.get(position));
+            holder.cityImage.setImageBitmap(bitmap);
+            holder.cityName.setText(gridView_model.getCityName());
         }
 
 
@@ -105,13 +105,13 @@ public class GridViewAdapter extends BaseAdapter {
 
     class ViewHolder {
 
-        ImageView CityImage;
-        TextView CityName;
+        ImageView cityImage;
+        TextView cityName;
 
         void bind(View view) {
 
-            CityImage = (ImageView) view.findViewById(R.id.iv_City);
-            CityName = (TextView) view.findViewById(R.id.tv_CityName);
+            cityImage = (ImageView) view.findViewById(R.id.iv_City);
+            cityName = (TextView) view.findViewById(R.id.tv_CityName);
         }
     }
 

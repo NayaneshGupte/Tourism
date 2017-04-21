@@ -27,13 +27,13 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
     Activity5aFamousPlaces famousPlaces_cardView =new Activity5aFamousPlaces();
 
    ArrayList<Places> place=new ArrayList<Places>();
-    private String CardViewNo_4_Text ="Tap Here";   //String to compare text of no4 image in cardview
+    private String cardViewNo4Text ="Tap Here";   //String to compare text of no4 image in cardview
 
     private RecyclerViewItemClickListener onRecycleView_ItemClickListener;
 
     //setter for setOnClickViewItmListener
-    public void setOnRecycleView_ItemClickListener(RecyclerViewItemClickListener onRecycleView_ItemClickListener) {
-        this.onRecycleView_ItemClickListener = onRecycleView_ItemClickListener;
+    public void setOnRecycleView_ItemClickListener(RecyclerViewItemClickListener onRecycleViewItemClickListener) {
+        this.onRecycleView_ItemClickListener = onRecycleViewItemClickListener;
     }
 
     public PlacesAdapter(ArrayList<Places> place) {
@@ -54,20 +54,20 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
 
 
         final Places PLA=place.get(position);
-        holder.City_img1.setImageResource(PLA.getImage_id());
-        holder.City_name1.setText(PLA.getName());
-        holder.City_detail1.setText(PLA.getDetail());
+        holder.cityImg1.setImageResource(PLA.getImageId());
+        holder.cityName1.setText(PLA.getName());
+        holder.cityDetail1.setText(PLA.getDetail());
 
         //checking if image with + sign is holding by card view or not if it is than make it clickable
-        if(CardViewNo_4_Text.equals(holder.City_name1.getText().toString())) {
+        if(cardViewNo4Text.equals(holder.cityName1.getText().toString())) {
 
-            holder.City_detail1.setVisibility(View.GONE);
-            holder.City_name1.setVisibility(View.GONE);
-            holder.Add_Name.setVisibility(View.VISIBLE);
-            holder.Add_Detail.setVisibility(View.VISIBLE);
+            holder.cityDetail1.setVisibility(View.GONE);
+            holder.cityName1.setVisibility(View.GONE);
+            holder.addName.setVisibility(View.VISIBLE);
+            holder.addDetail.setVisibility(View.VISIBLE);
 
             //OnClickListener for image
-            holder.City_img1.setOnClickListener(new View.OnClickListener() {
+            holder.cityImg1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -84,10 +84,10 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
 
         else{
 
-            holder.City_detail1.setVisibility(View.VISIBLE);
-            holder.City_name1.setVisibility(View.VISIBLE);
-            holder.Add_Name.setVisibility(View.GONE);
-            holder.Add_Detail.setVisibility(View.GONE);
+            holder.cityDetail1.setVisibility(View.VISIBLE);
+            holder.cityName1.setVisibility(View.VISIBLE);
+            holder.addName.setVisibility(View.GONE);
+            holder.addDetail.setVisibility(View.GONE);
         }
 
 
@@ -106,18 +106,18 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
     public static class Places_ViewHolder extends RecyclerView.ViewHolder{
 
 
-        ImageView City_img1;
-        TextView City_name1,City_detail1 ;
-        EditText Add_Name,Add_Detail;
+        ImageView cityImg1;
+        TextView cityName1, cityDetail1;
+        EditText addName, addDetail;
 
 
         public Places_ViewHolder(View view) {
             super(view);
-            City_img1=(ImageView) view.findViewById(R.id.iv_places1);
-            City_name1=(TextView) view.findViewById(R.id.tv_Places1Text1);
-            City_detail1=(TextView) view.findViewById(R.id.tv_Places1Text2);
-            Add_Name=(EditText) view.findViewById(R.id.et_name);
-            Add_Detail=(EditText) view.findViewById(R.id.et_details);
+            cityImg1 =(ImageView) view.findViewById(R.id.iv_places1);
+            cityName1 =(TextView) view.findViewById(R.id.tv_Places1Text1);
+            cityDetail1 =(TextView) view.findViewById(R.id.tv_Places1Text2);
+            addName =(EditText) view.findViewById(R.id.et_name);
+            addDetail =(EditText) view.findViewById(R.id.et_details);
 
 
         }

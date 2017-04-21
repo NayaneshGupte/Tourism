@@ -23,29 +23,29 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 2;
 
-    RecyclerView recycler_View;
-    RecyclerView.LayoutManager layout_Manager;
-    PlacesAdapter places_Adapter;
+    RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    PlacesAdapter placesAdapter;
 
     //array to store all images
-    int Image_id[] = {R.drawable.vpdelhiakshardham, R.drawable.vpdelhilotus, R.drawable.vpdelhijamma, R.drawable.add, R.drawable.vpmumbaimarine, R.drawable.vpmumbailast, R.drawable.vpmumbaichowpatti, R.drawable.add, R.drawable.vpchennaiqueen, R.drawable.vpchennaimgm, R.drawable.vpchennaimarina, R.drawable.add, R.drawable.vpkolkatadurga, R.drawable.vpkolkatabook, R.drawable.vpkolkatabbd, R.drawable.add, R.drawable.vplucknowjaneshwer, R.drawable.vplucknowambedkar, R.drawable.vplucknowzoo, R.drawable.add, R.drawable.vphyderabadopera, R.drawable.vphyderabadananthgiri, R.drawable.vphyderabadapstate, R.drawable.add, R.drawable.vpahemadabadthor, R.drawable.vpahemedabadvastrapur, R.drawable.vpahemdabadkankaria, R.drawable.add, R.drawable.vpbangpalace, R.drawable.vpbanglal, R.drawable.vpbangtipu, R.drawable.add};
+    int imageId[] = {R.drawable.vpdelhiakshardham, R.drawable.vpdelhilotus, R.drawable.vpdelhijamma, R.drawable.add, R.drawable.vpmumbaimarine, R.drawable.vpmumbailast, R.drawable.vpmumbaichowpatti, R.drawable.add, R.drawable.vpchennaiqueen, R.drawable.vpchennaimgm, R.drawable.vpchennaimarina, R.drawable.add, R.drawable.vpkolkatadurga, R.drawable.vpkolkatabook, R.drawable.vpkolkatabbd, R.drawable.add, R.drawable.vplucknowjaneshwer, R.drawable.vplucknowambedkar, R.drawable.vplucknowzoo, R.drawable.add, R.drawable.vphyderabadopera, R.drawable.vphyderabadananthgiri, R.drawable.vphyderabadapstate, R.drawable.add, R.drawable.vpahemadabadthor, R.drawable.vpahemedabadvastrapur, R.drawable.vpahemdabadkankaria, R.drawable.add, R.drawable.vpbangpalace, R.drawable.vpbanglal, R.drawable.vpbangtipu, R.drawable.add};
 
     //String array to retrive name and details of places from string xml file
     String[] name, detail;
 
     //arraylist to bind up all class variables
-    ArrayList<Places> Places_List = new ArrayList<Places>();
+    ArrayList<Places> placesList = new ArrayList<Places>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_famous_places__card_view);
 
-        recycler_View = (RecyclerView) findViewById(R.id.rv_famous_places_card);
-       // places_Adapter = new PlacesAdapter(this);
-        layout_Manager = new LinearLayoutManager(this);
-        recycler_View.setLayoutManager(layout_Manager);
-        recycler_View.setHasFixedSize(true);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_famous_places_card);
+       // placesAdapter = new PlacesAdapter(this);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
 
         Intent intent = getIntent();
         int position = intent.getIntExtra("position", 0);
@@ -57,14 +57,14 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
         //loop for writing data to array list
         for (int i = (position * 4); i <= (position * 4) + 3; i++) {
 
-            Places places = new Places(Image_id[i], name[i], detail[i]);
-            Places_List.add(places);
+            Places places = new Places(imageId[i], name[i], detail[i]);
+            placesList.add(places);
         }
 
 
-        places_Adapter = new PlacesAdapter(Places_List);
-        places_Adapter.setOnRecycleView_ItemClickListener(this);
-        recycler_View.setAdapter(places_Adapter);
+        placesAdapter = new PlacesAdapter(placesList);
+        placesAdapter.setOnRecycleView_ItemClickListener(this);
+        recyclerView.setAdapter(placesAdapter);
 
     }
 

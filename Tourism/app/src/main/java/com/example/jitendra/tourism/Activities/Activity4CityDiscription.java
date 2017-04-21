@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 public class Activity4CityDiscription extends AppCompatActivity {
 
-    private ImageView Iv_CityPic;
-    private TextView Tv_City_Discription;
-    private Button B_Gallery;
-    private Button B_FamousPlaces;
-    private String[] City_Details;
+    private ImageView ivCityPic;
+    private TextView tvCityDiscription;
+    private Button bGallery;
+    private Button bFamousPlaces;
+    private String[] cityDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,27 +28,27 @@ public class Activity4CityDiscription extends AppCompatActivity {
         setContentView(R.layout.activity_city__discription);
 
         //assigning layout items to variables
-        Iv_CityPic =(ImageView) findViewById(R.id.iv_CityPic);
-        Tv_City_Discription =(TextView) findViewById(R.id.tv_CityDiscription);
-        B_Gallery =(Button)findViewById(R.id.b_gallery);
-        B_FamousPlaces =(Button)findViewById(R.id.b_FamousPlaces);
+        ivCityPic =(ImageView) findViewById(R.id.iv_CityPic);
+        tvCityDiscription =(TextView) findViewById(R.id.tv_CityDiscription);
+        bGallery =(Button)findViewById(R.id.b_gallery);
+        bFamousPlaces =(Button)findViewById(R.id.b_FamousPlaces);
 
         //getting city details from resource xml file
-        City_Details=getResources().getStringArray(R.array.citydetails);
+        cityDetails =getResources().getStringArray(R.array.citydetails);
 
         //getting position from intent of previous activity
         Intent intent= getIntent();
         final int Position = intent.getIntExtra("CityNumber", -1);
-        final ArrayList<String> file_Path=intent.getStringArrayListExtra("Path");
+        final ArrayList<String> filePath=intent.getStringArrayListExtra("Path");
 
         //setting images and text to their respective places
 
-        Bitmap bitmap = BitmapFactory.decodeFile(file_Path.get(Position));
-        Iv_CityPic.setImageBitmap(bitmap);
-        Tv_City_Discription.setText(City_Details[Position]);
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath.get(Position));
+        ivCityPic.setImageBitmap(bitmap);
+        tvCityDiscription.setText(cityDetails[Position]);
 
 
-        B_Gallery.setOnClickListener(new View.OnClickListener() {
+        bGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Activity4CityDiscription.this,Activity5bGallery.class);
@@ -58,7 +58,7 @@ public class Activity4CityDiscription extends AppCompatActivity {
             }
         });
 
-        B_FamousPlaces.setOnClickListener(new View.OnClickListener() {
+        bFamousPlaces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Activity4CityDiscription.this, Activity5aFamousPlaces.class);

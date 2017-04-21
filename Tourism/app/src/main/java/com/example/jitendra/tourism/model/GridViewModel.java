@@ -6,18 +6,18 @@ package com.example.jitendra.tourism.model;
 
 public class GridViewModel {
 
-    private String City_Name;
+    private String cityName;
 
     public GridViewModel(String city_Name ) {
-        City_Name = city_Name;
+        cityName = city_Name;
     }
 
-    public String getCity_Name() {
-        return City_Name;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity_Name(String city_Name) {
-        City_Name = city_Name;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
 }

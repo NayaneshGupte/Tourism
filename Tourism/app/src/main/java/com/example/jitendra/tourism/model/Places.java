@@ -2,27 +2,26 @@
 //class to display data in recyclerview
 
 package com.example.jitendra.tourism.model;
-import java.util.ArrayList;
 
 
 public class Places {
 
-    private int Image_id;
+    private int imageId;
     private String name;
     private String detail;
 
-    public Places(int image_id, String name, String detail) {
-        Image_id = image_id;
+    public Places(int imageId, String name, String detail) {
+        this.imageId = imageId;
         this.name = name;
         this.detail = detail;
     }
 
-    public int getImage_id() {
-        return Image_id;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setImage_id(int image_id) {
-        Image_id = image_id;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
     public String getName() {

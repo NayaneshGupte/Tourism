@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 public class Activity3bAddPlace extends AppCompatActivity {
 
-    private ImageView Add_CityImage;
-    private TextView Add_CityName;
-    private Button Save;
-    private String CityName;
-    private ArrayList<String> file_Path=new ArrayList<String>();
+    private ImageView addCityImage;
+    private TextView addCityName;
+    private Button save;
+    private String cityName;
+    private ArrayList<String> filePath =new ArrayList<String>();
     private File[] listFile;
 
     @Override
@@ -29,27 +29,27 @@ public class Activity3bAddPlace extends AppCompatActivity {
         setContentView(R.layout.activity_activity3_b__add_place);
         getFromSdcard();
 
-        Add_CityImage=(ImageView) findViewById(R.id.iv_AddCityImage);
-        Add_CityName=(TextView) findViewById(R.id.tv_AddCityName);
-        Save=(Button)findViewById(R.id.b_Save);
+        addCityImage =(ImageView) findViewById(R.id.iv_AddCityImage);
+        addCityName =(TextView) findViewById(R.id.tv_AddCityName);
+        save =(Button)findViewById(R.id.b_Save);
 
-        CityName=Add_CityName.getText().toString();
+        cityName = addCityName.getText().toString();
 
-        Save.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Activity3GridView Act=new Activity3GridView();
-                Bitmap bitmap = BitmapFactory.decodeFile(file_Path.get(0));
-                Add_CityImage.setImageBitmap(bitmap);
-                Act.Name_of_LocalPlace=CityName;
-                Act.file_PathFor_LocalPlace=file_Path;
+                Bitmap bitmap = BitmapFactory.decodeFile(filePath.get(0));
+                addCityImage.setImageBitmap(bitmap);
+                Act.nameOfLocalPlace = cityName;
+                Act.filePathForLocalPlace = filePath;
 
             }
         });
 
     }
 
-    public String getName(){return CityName;}
+    public String getName(){return cityName;}
 
     public void getFromSdcard()
     {
@@ -63,7 +63,7 @@ public class Activity3bAddPlace extends AppCompatActivity {
             for (int i = 0; i < listFile.length; i++)
             {
 
-                file_Path.add(listFile[i].getAbsolutePath());
+                filePath.add(listFile[i].getAbsolutePath());
 
             }
         }

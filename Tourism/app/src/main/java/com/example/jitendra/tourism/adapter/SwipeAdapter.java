@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class SwipeAdapter extends PagerAdapter {
 
 
-    private ImageView ImagsForGallery;
-    private TextView ImageNumber;
+    private ImageView imagsForGallery;
+    private TextView imageNumber;
     private Context context;
     private LayoutInflater layoutInflater;
     private ArrayList<GalleryModel> galleryModels;
@@ -46,14 +46,14 @@ public class SwipeAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.image_swipable, container, false);
 
-        ImagsForGallery = (ImageView) view.findViewById(R.id.iv_ImagesForGallery);
-        ImageNumber = (TextView) view.findViewById(R.id.tv_ImageNumber);
+        imagsForGallery = (ImageView) view.findViewById(R.id.iv_ImagesForGallery);
+        imageNumber = (TextView) view.findViewById(R.id.tv_ImageNumber);
 
         //creating object of GalleryModel to keep track on position
         GalleryModel model = galleryModels.get(position);
 
-        ImagsForGallery.setImageResource(model.getImage_id());
-        ImageNumber.setText("Image No. : " + (position + 1));
+        imagsForGallery.setImageResource(model.getImageId());
+        imageNumber.setText("Image No. : " + (position + 1));
         container.addView(view);
 
         return view;

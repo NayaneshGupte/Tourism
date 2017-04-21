@@ -14,9 +14,9 @@ import com.example.jitendra.tourism.R;
 
 public class Activity2Login extends AppCompatActivity {
 
-    private EditText Et_Username;
-    private EditText Et_Password;
-    private Button Button_Login;
+    private EditText etUsername;
+    private EditText etPassword;
+    private Button buttonLogin;
 
     //Strings for comparision with user input in username and password field
     String Uname ="";/* "user123@example.com";*/
@@ -28,17 +28,17 @@ public class Activity2Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //attaching variables to xml file
-        Et_Username = (EditText) findViewById(R.id.et_Username);
-        Et_Password = (EditText) findViewById(R.id.et_Password);
-        Button_Login = (Button) findViewById(R.id.b_Login);
+        etUsername = (EditText) findViewById(R.id.et_Username);
+        etPassword = (EditText) findViewById(R.id.et_Password);
+        buttonLogin = (Button) findViewById(R.id.b_Login);
 
         //checking weather username and password are correct or not
-        Button_Login.setOnClickListener(new View.OnClickListener() {
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //if correct then grant permission
-                if (Uname.equals(Et_Username.getText().toString()) && Pass.equals(Et_Password.getText().toString())) {
+                if (Uname.equals(etUsername.getText().toString()) && Pass.equals(etPassword.getText().toString())) {
 
                     Toast.makeText(Activity2Login.this, "Login Successful....", Toast.LENGTH_SHORT).show();
 
@@ -50,8 +50,8 @@ public class Activity2Login extends AppCompatActivity {
                 else {
 
                     Toast.makeText(Activity2Login.this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show();
-                    Et_Username.setText(null);
-                    Et_Password.setText(null);
+                    etUsername.setText(null);
+                    etPassword.setText(null);
                 }
             }
         });
