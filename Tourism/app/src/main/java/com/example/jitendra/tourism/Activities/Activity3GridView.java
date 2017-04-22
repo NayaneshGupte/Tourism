@@ -60,7 +60,7 @@ public class Activity3GridView extends AppCompatActivity {
 
                     Intent intent = new Intent(Activity3GridView.this, Activity4CityDiscription.class);
                     intent.putExtra("CityNumber", position);
-                    Log.e("TAG",String.valueOf(filePathForLocalPlace.size()));
+                    Log.e("TAG",String.valueOf(filePathForLocalPlace==null));
                     Log.e("TAG",String.valueOf(nameOfLocalPlace==null));
                     Log.e("TAG",String.valueOf(filePathForLocalPlace.isEmpty()));
                     //converting bitmap to ByteArray
@@ -77,15 +77,15 @@ public class Activity3GridView extends AppCompatActivity {
                     Intent intent = new Intent(Activity3GridView.this, Activity3bAddPlace.class);
                     startActivity(intent);
 
-                   /* *//*bundle=new Bundle();
+                    /*bundle=new Bundle();
                     bundle.putString("Name", nameOfLocalPlace);
-                    bundle.putStringArrayList("Path", filePathForLocalPlace);*//*
+                    bundle.putStringArrayList("Path", filePathForLocalPlace);*/
                     GridViewModel gridViewModel=new GridViewModel("Kapur");
                     gridViewModels.set(position,gridViewModel);
                     filePath.set(position,filePathForLocalPlace.get(position));
-                    GridViewAdapter adapter=new GridViewAdapter(gridViewModels, filePath*//*, nameOfLocalPlace, filePathForLocalPlace*//*);
-                    *//*adapter.Receive_Data(bundle);*//*
-                    gridView.setAdapter(adapter);*/
+                    GridViewAdapter adapter=new GridViewAdapter(gridViewModels, filePath/*, nameOfLocalPlace, filePathForLocalPlace*/);
+                    /*adapter.Receive_Data(bundle);*/
+                    gridView.setAdapter(adapter);
 
                 }
             }
