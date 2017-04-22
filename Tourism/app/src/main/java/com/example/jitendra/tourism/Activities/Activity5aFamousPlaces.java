@@ -11,11 +11,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+
 import com.example.jitendra.tourism.R;
 import com.example.jitendra.tourism.adapter.PlacesAdapter;
 import com.example.jitendra.tourism.model.Places;
 import com.example.jitendra.tourism.utils.RecyclerViewItemClickListener;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Activity5aFamousPlaces extends AppCompatActivity implements RecyclerViewItemClickListener {
@@ -26,9 +29,9 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     PlacesAdapter placesAdapter;
-
-    //array to store all images
-    int imageId[] = {R.drawable.vpdelhiakshardham, R.drawable.vpdelhilotus, R.drawable.vpdelhijamma, R.drawable.add, R.drawable.vpmumbaimarine, R.drawable.vpmumbailast, R.drawable.vpmumbaichowpatti, R.drawable.add, R.drawable.vpchennaiqueen, R.drawable.vpchennaimgm, R.drawable.vpchennaimarina, R.drawable.add, R.drawable.vpkolkatadurga, R.drawable.vpkolkatabook, R.drawable.vpkolkatabbd, R.drawable.add, R.drawable.vplucknowjaneshwer, R.drawable.vplucknowambedkar, R.drawable.vplucknowzoo, R.drawable.add, R.drawable.vphyderabadopera, R.drawable.vphyderabadananthgiri, R.drawable.vphyderabadapstate, R.drawable.add, R.drawable.vpahemadabadthor, R.drawable.vpahemedabadvastrapur, R.drawable.vpahemdabadkankaria, R.drawable.add, R.drawable.vpbangpalace, R.drawable.vpbanglal, R.drawable.vpbangtipu, R.drawable.add};
+    private ArrayList<String> filePath = new ArrayList<String>();// list of file paths
+    private ArrayList<String> filePathToSend=new ArrayList<>();
+    private File[] listFile;
 
     //String array to retrive name and details of places from string xml file
     String[] name, detail;
@@ -38,6 +41,7 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getFromSdcard();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_famous_places__card_view);
 
@@ -57,12 +61,13 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
         //loop for writing data to array list
         for (int i = (position * 4); i <= (position * 4) + 3; i++) {
 
-            Places places = new Places(imageId[i], name[i], detail[i]);
+            Places places = new Places(name[i], detail[i]);
             placesList.add(places);
+            filePathToSend.add(filePath.get(i));
         }
 
 
-        placesAdapter = new PlacesAdapter(placesList);
+        placesAdapter = new PlacesAdapter(placesList,filePathToSend);
         placesAdapter.setOnRecycleView_ItemClickListener(this);
         recyclerView.setAdapter(placesAdapter);
 
@@ -95,6 +100,25 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
         });
         builder.show();
 
+    }
+
+    public void getFromSdcard()
+    {
+        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Picture");
+
+        if (file.isDirectory())
+        {
+            listFile = file.listFiles();
+
+
+            for (int i = 0; i < listFile.length; i++)
+            {
+
+                filePath.add(listFile[i].getAbsolutePath());
+
+            }
+
+        }
     }
 
 }

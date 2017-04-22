@@ -1,4 +1,6 @@
 package com.example.jitendra.tourism.adapter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,10 +25,8 @@ import java.util.ArrayList;
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_ViewHolder>  {
 
 
-    //creating object of famous places card view class
-    Activity5aFamousPlaces famousPlaces_cardView =new Activity5aFamousPlaces();
-
    ArrayList<Places> place=new ArrayList<Places>();
+    private ArrayList<String> filePathToReceive=new ArrayList<>();
     private String cardViewNo4Text ="Tap Here";   //String to compare text of no4 image in cardview
 
     private RecyclerViewItemClickListener onRecycleView_ItemClickListener;
@@ -36,8 +36,9 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
         this.onRecycleView_ItemClickListener = onRecycleViewItemClickListener;
     }
 
-    public PlacesAdapter(ArrayList<Places> place) {
+    public PlacesAdapter(ArrayList<Places> place,ArrayList<String> filePathToReceive) {
         this.place = place;
+        this.filePathToReceive=filePathToReceive;
     }
 
     @Override
@@ -54,7 +55,8 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
 
 
         final Places PLA=place.get(position);
-        holder.cityImg1.setImageResource(PLA.getImageId());
+        Bitmap bitmap = BitmapFactory.decodeFile(filePathToReceive.get(position));
+        holder.cityImg1.setImageBitmap(bitmap);
         holder.cityName1.setText(PLA.getName());
         holder.cityDetail1.setText(PLA.getDetail());
 

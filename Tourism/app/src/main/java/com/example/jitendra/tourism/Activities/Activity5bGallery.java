@@ -7,8 +7,8 @@ import android.os.Bundle;
 
 import com.example.jitendra.tourism.R;
 import com.example.jitendra.tourism.adapter.SwipeAdapter;
-import com.example.jitendra.tourism.model.GalleryModel;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Activity5bGallery extends AppCompatActivity {
@@ -16,11 +16,13 @@ public class Activity5bGallery extends AppCompatActivity {
     private ViewPager viewPager;
     private SwipeAdapter swipeAdapter;
 
-    private int[] imageResource = {R.drawable.vpdelhiakshardham, R.drawable.vpdelhilotus, R.drawable.vpdelhijamma, R.drawable.vpmumbaimarine, R.drawable.vpmumbaichowpatti, R.drawable.vpmumbailast, R.drawable.vpchennaiqueen, R.drawable.vpchennaimgm, R.drawable.vpchennaimarina, R.drawable.vpkolkatadurga, R.drawable.vpkolkatabook, R.drawable.vpkolkatabbd, R.drawable.vplucknowjaneshwer, R.drawable.vplucknowambedkar, R.drawable.vplucknowzoo, R.drawable.vphyderabadopera, R.drawable.vphyderabadananthgiri, R.drawable.vphyderabadapstate, R.drawable.vpahemadabadthor, R.drawable.vpahemedabadvastrapur, R.drawable.vpahemdabadkankaria, R.drawable.vpbangpalace, R.drawable.vpbanglal, R.drawable.vpbangtipu};
-    private ArrayList<GalleryModel> galleryModelArrayList =new ArrayList<GalleryModel>();
+    private ArrayList<String> filePath = new ArrayList<String>();// list of file paths
+    private ArrayList<String> filePathToSend = new ArrayList<String>();
+    private File[] listFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getFromSdcard();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
@@ -31,13 +33,31 @@ public class Activity5bGallery extends AppCompatActivity {
 
         for(int i=(position*3);i<=((position*3)+2);i++){
 
-            GalleryModel g=new GalleryModel(imageResource[i]);
-            galleryModelArrayList.add(g);
+            filePathToSend.add(filePath.get(i));
+
         }
 
-        swipeAdapter =new SwipeAdapter(this, galleryModelArrayList);
+        swipeAdapter =new SwipeAdapter(this,filePathToSend);
         viewPager.setAdapter(swipeAdapter);
 
 
+    }
+
+    public void getFromSdcard()
+    {
+        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Pic3");
+
+        if (file.isDirectory())
+        {
+            listFile = file.listFiles();
+
+
+            for (int i = 0; i < listFile.length; i++)
+            {
+
+                filePath.add(listFile[i].getAbsolutePath());
+
+            }
+        }
     }
 }

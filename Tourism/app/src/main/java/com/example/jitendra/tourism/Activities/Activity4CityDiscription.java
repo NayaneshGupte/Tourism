@@ -39,11 +39,11 @@ public class Activity4CityDiscription extends AppCompatActivity {
         //getting position from intent of previous activity
         Intent intent= getIntent();
         final int Position = intent.getIntExtra("CityNumber", -1);
-        final ArrayList<String> filePath=intent.getStringArrayListExtra("Path");
+
 
         //setting images and text to their respective places
 
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath.get(Position));
+        Bitmap bitmap = BitmapFactory.decodeByteArray(intent.getByteArrayExtra("byte Array"),0,intent.getByteArrayExtra("byte Array").length);
         ivCityPic.setImageBitmap(bitmap);
         tvCityDiscription.setText(cityDetails[Position]);
 

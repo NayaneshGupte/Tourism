@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,6 +23,7 @@ public class Activity3bAddPlace extends AppCompatActivity {
     private String cityName;
     private ArrayList<String> filePath =new ArrayList<String>();
     private File[] listFile;
+    Activity3GridView Act=new Activity3GridView();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +40,19 @@ public class Activity3bAddPlace extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Activity3GridView Act=new Activity3GridView();
-                Bitmap bitmap = BitmapFactory.decodeFile(filePath.get(0));
+                Bitmap bitmap = BitmapFactory.decodeFile(Act.filePathForLocalPlace.get(0));
                 addCityImage.setImageBitmap(bitmap);
                 Act.nameOfLocalPlace = cityName;
-                Act.filePathForLocalPlace = filePath;
 
             }
         });
 
     }
 
-    public String getName(){return cityName;}
-
     public void getFromSdcard()
     {
-        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Pic");
+        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Pic3");
+
 
         if (file.isDirectory())
         {
@@ -63,7 +62,7 @@ public class Activity3bAddPlace extends AppCompatActivity {
             for (int i = 0; i < listFile.length; i++)
             {
 
-                filePath.add(listFile[i].getAbsolutePath());
+                Act.filePathForLocalPlace.add(listFile[i].getAbsolutePath());
 
             }
         }

@@ -1,6 +1,8 @@
 package com.example.jitendra.tourism.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jitendra.tourism.R;
-import com.example.jitendra.tourism.model.GalleryModel;
 
 import java.util.ArrayList;
 
@@ -21,17 +22,18 @@ public class SwipeAdapter extends PagerAdapter {
     private TextView imageNumber;
     private Context context;
     private LayoutInflater layoutInflater;
-    private ArrayList<GalleryModel> galleryModels;
+    private ArrayList<String> filePathToReceive = new ArrayList<String>();
 
-    public SwipeAdapter(Context context, ArrayList<GalleryModel> galleryModels) {
+
+    public SwipeAdapter(Context context,ArrayList<String> filePathToReceive) {
 
         this.context = context;
-        this.galleryModels = galleryModels;
+        this.filePathToReceive=filePathToReceive;
     }
 
     @Override
     public int getCount() {
-        return galleryModels.size();
+        return filePathToReceive.size();
     }
 
     @Override
@@ -49,10 +51,8 @@ public class SwipeAdapter extends PagerAdapter {
         imagsForGallery = (ImageView) view.findViewById(R.id.iv_ImagesForGallery);
         imageNumber = (TextView) view.findViewById(R.id.tv_ImageNumber);
 
-        //creating object of GalleryModel to keep track on position
-        GalleryModel model = galleryModels.get(position);
-
-        imagsForGallery.setImageResource(model.getImageId());
+        Bitmap bitmap = BitmapFactory.decodeFile(filePathToReceive.get(position));
+        imagsForGallery.setImageBitmap(bitmap);
         imageNumber.setText("Image No. : " + (position + 1));
         container.addView(view);
 

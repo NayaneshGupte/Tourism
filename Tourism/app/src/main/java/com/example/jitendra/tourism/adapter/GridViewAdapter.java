@@ -26,25 +26,25 @@ public class GridViewAdapter extends BaseAdapter {
 
     private ArrayList<GridViewModel> alGridview =new ArrayList<GridViewModel>();
     private ArrayList<String> filePath =new ArrayList<String>();
-    private ArrayList<String> filePathForLocalPlace =new ArrayList<String>();
-    private String name;
+    /*private ArrayList<String> filePathForLocalPlace =new ArrayList<String>();
+    private String name;*/
     //constructor to initialize GridView ArrayLIst
-    public GridViewAdapter(ArrayList<GridViewModel> alGridview, ArrayList<String> filePath, String Name, ArrayList<String> filePathForLocalPlace) {
+    public GridViewAdapter(ArrayList<GridViewModel> alGridview, ArrayList<String> filePath/*, String Name, ArrayList<String> filePathForLocalPlace*/) {
         this.alGridview = alGridview;
         this.filePath = filePath;
-        this.name=Name;
-        this.filePathForLocalPlace = filePathForLocalPlace;
+        /*this.name=Name;
+        this.filePathForLocalPlace = filePathForLocalPlace;*/
     }
 
     public GridViewAdapter() {
     }
 
-    public void Receive_Data(Bundle bundle){
+    /*public void Receive_Data(Bundle bundle){
 
         name=bundle.getString("Name","");
         filePathForLocalPlace =bundle.getStringArrayList("Path");
 
-    }
+    }*/
 
     @Override
     public int getCount() {
@@ -80,7 +80,7 @@ public class GridViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        if(name!=null && filePathForLocalPlace !=null && position==8){
+       /* if(filePathForLocalPlace !=null && position==8){
 
             holder.cityName.setText(name);
             Log.e(TAG,String.valueOf(filePathForLocalPlace.size()));
@@ -88,13 +88,14 @@ public class GridViewAdapter extends BaseAdapter {
             holder.cityImage.setImageBitmap(bitmap);
             holder.cityImage.setImageBitmap(bitmap);
 
-        }
-        else {
+        }*/
+        /*else {*/
             GridViewModel gridView_model = alGridview.get(position);
             Bitmap bitmap = BitmapFactory.decodeFile(filePath.get(position));
             holder.cityImage.setImageBitmap(bitmap);
             holder.cityName.setText(gridView_model.getCityName());
-        }
+
+       /* }*/
 
 
         return convertView;
