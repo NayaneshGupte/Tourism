@@ -11,7 +11,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.jitendra.tourism.R;
 import com.example.jitendra.tourism.adapter.PlacesAdapter;
@@ -43,10 +42,9 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
     protected void onCreate(Bundle savedInstanceState) {
         getFromSdcard();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_famous_places__card_view);
+        setContentView(R.layout.activityfamousplacescardview);
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_famous_places_card);
-       // placesAdapter = new PlacesAdapter(this);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
@@ -104,7 +102,7 @@ public class Activity5aFamousPlaces extends AppCompatActivity implements Recycle
 
     public void getFromSdcard()
     {
-        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Picture");
+        File file= new File(android.os.Environment.getExternalStorageDirectory(),"CardView");
 
         if (file.isDirectory())
         {

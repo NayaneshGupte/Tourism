@@ -19,13 +19,13 @@ public class Activity2Login extends AppCompatActivity {
     private Button buttonLogin;
 
     //Strings for comparision with user input in username and password field
-    String Uname ="";/* "user123@example.com";*/
-    String Pass = "";/*"User@1234";*/
+    String Uname = "user123@example.com";
+    String Pass = "User@1234";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activitylogin);
 
         //attaching variables to xml file
         etUsername = (EditText) findViewById(R.id.et_Username);

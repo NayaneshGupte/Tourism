@@ -24,7 +24,7 @@ public class Activity5bGallery extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         getFromSdcard();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
+        setContentView(R.layout.activitygallery);
 
         viewPager = (ViewPager) findViewById(R.id.vp_Gallery);
 
@@ -45,7 +45,7 @@ public class Activity5bGallery extends AppCompatActivity {
 
     public void getFromSdcard()
     {
-        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Pic3");
+        File file= new File(android.os.Environment.getExternalStorageDirectory(),"Gallery");
 
         if (file.isDirectory())
         {

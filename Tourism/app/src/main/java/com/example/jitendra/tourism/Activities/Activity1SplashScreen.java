@@ -18,7 +18,7 @@ public class Activity1SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activitymain);
 
         mLogo =(ImageView) findViewById(R.id.iv_Logo);
 

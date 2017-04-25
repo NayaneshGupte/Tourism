@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.example.jitendra.tourism.R;
 
-import java.util.ArrayList;
-
 public class Activity4CityDiscription extends AppCompatActivity {
 
     private ImageView ivCityPic;
@@ -25,7 +23,7 @@ public class Activity4CityDiscription extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_city__discription);
+        setContentView(R.layout.activitycitydiscription);
 
         //assigning layout items to variables
         ivCityPic =(ImageView) findViewById(R.id.iv_CityPic);

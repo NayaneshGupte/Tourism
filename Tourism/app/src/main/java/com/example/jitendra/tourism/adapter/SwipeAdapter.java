@@ -46,7 +46,7 @@ public class SwipeAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.image_swipable, container, false);
+        View view = layoutInflater.inflate(R.layout.imageswipable, container, false);
 
         imagsForGallery = (ImageView) view.findViewById(R.id.iv_ImagesForGallery);
         imageNumber = (TextView) view.findViewById(R.id.tv_ImageNumber);

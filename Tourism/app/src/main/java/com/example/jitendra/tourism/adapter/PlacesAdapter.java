@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jitendra.tourism.Activities.Activity5aFamousPlaces;
 import com.example.jitendra.tourism.model.Places;
 import com.example.jitendra.tourism.R;
 import com.example.jitendra.tourism.utils.RecyclerViewItemClickListener;
@@ -35,7 +34,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
     public void setOnRecycleView_ItemClickListener(RecyclerViewItemClickListener onRecycleViewItemClickListener) {
         this.onRecycleView_ItemClickListener = onRecycleViewItemClickListener;
     }
-
+    //constructor
     public PlacesAdapter(ArrayList<Places> place,ArrayList<String> filePathToReceive) {
         this.place = place;
         this.filePathToReceive=filePathToReceive;
@@ -45,7 +44,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
     public Places_ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         //inflatting carview layout
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.places_cardview,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.placescardview,parent,false);
         Places_ViewHolder places_ViewHolder=new Places_ViewHolder(view);
         return  places_ViewHolder;
     }
@@ -75,9 +74,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.Places_Vie
 
 
                     if (null != onRecycleView_ItemClickListener) {
-                       /* Bundle bundle = new Bundle();
-                        bundle.putInt("position", position);
-                        bundle.putParcelable("parcel", (Parcelable) PLA);*/
+
                         onRecycleView_ItemClickListener.onItemClick();
                     }
                 }
